@@ -678,7 +678,7 @@
 		
 		<div class="row justify-content-center" id="contactFormSection">
 			<div class="col-md-7 ftco-animate" style="display: flex; justify-content: center; align-items: center;">
-				<form id="contactForm" class="contact-form" action="https://api.web3forms.com/submit" method="POST" style="width: 100%; max-width: 600px;">
+				<form id="contactForm" class="contact-form" action="https://api.web3forms.com/submit" method="POST" style="width: 100%; max-width: 800px;">
 					<input type="hidden" name="access_key" value="aaceb3cd-4298-498f-bb28-739f2517cb21">
 					
 					<div class="form-group">
@@ -694,34 +694,53 @@
 						<button type="submit" class="btn btn-primary py-3 px-5">Send Message</button>
 					</div>
 				</form>
+			</div>
+		</div>
 		
-				<!-- Alert Notification -->
-				<div id="alert" class="alert alert-success" role="alert" style="display:none;">
-					Your message has been sent successfully!
-				</div>
+		<!-- Alert Notification -->
+		<div class="row justify-content-center">
+			<div id="alert" class="alert alert-success text-center" role="alert" style="display: none; width: 100%; max-width: 800px;">
+				Your message has been sent successfully!
+				<button id="closeAlertBtn" class="btn btn-primary mt-2">OK</button>
 			</div>
 		</div>
 		
 		<script>
-			// JavaScript for handling form submission and displaying alert
-			document.getElementById('contactForm').addEventListener('submit', function(event) {
-				event.preventDefault();
-				const form = event.target;
+		// JavaScript for handling form submission and displaying alert
+		document.getElementById('contactForm').addEventListener('submit', function(event) {
+			event.preventDefault();
+			const form = event.target;
 		
-				fetch(form.action, {
-					method: form.method,
-					body: new FormData(form)
-				}).then(response => {
-					if (response.ok) {
-						form.reset();
-						document.getElementById('alert').style.display = 'block';
-					} else {
-						alert('There was a problem sending your message.');
-					}
-				}).catch(error => {
-					console.error('Error:', error);
-				});
+			fetch(form.action, {
+				method: form.method,
+				body: new FormData(form)
+			}).then(response => {
+				if (response.ok) {
+					form.reset();
+					const alertBox = document.getElementById('alert');
+					const closeAlertBtn = document.getElementById('closeAlertBtn');
+		
+					// Show the alert box
+					alertBox.style.display = 'block';
+		
+					// Automatically hide the alert after 5 seconds
+					const alertTimeout = setTimeout(() => {
+						alertBox.style.display = 'none';
+					}, 5000);
+		
+					// Allow user to close the alert by clicking the OK button
+					closeAlertBtn.addEventListener('click', function() {
+						clearTimeout(alertTimeout); // Prevent auto-dismiss if OK is clicked
+						alertBox.style.display = 'none';
+					});
+		
+				} else {
+					alert('There was a problem sending your message.');
+				}
+			}).catch(error => {
+				console.error('Error:', error);
 			});
+		});
 		</script>
 
  </section>
