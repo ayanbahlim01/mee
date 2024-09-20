@@ -63,7 +63,7 @@ section {
 }
 
 body {
-  margin: 0;
+  
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 1rem;
   font-weight: 400;
@@ -71,6 +71,20 @@ body {
   color: #212529;
   text-align: left;
   background-color: #fff;
+
+  margin: 10px; /* Adjust this value as needed for spacing */
+  padding: 0; /* Reset padding if needed */
+  box-sizing: border-box; /* Ensure margins don't affect overall body size */
+  
+  
+  
+  
+}
+
+@media (max-width: 768px) {
+  body {
+    margin: 15px; /* Increase margin for smaller screens if necessary */
+  }
 }
 
 [tabindex="-1"]:focus {
@@ -12811,8 +12825,9 @@ h5,
   height: 10px;
   -webkit-box-shadow: none;
   box-shadow: none;
-  background: #1a1a1a;
+  background: grey;
   overflow: visible;
+  border-radius: 4px;
 }
 
 .progress-bar {
@@ -12829,6 +12844,7 @@ h5,
   -moz-border-radius: 2px;
   -ms-border-radius: 2px;
   border-radius: 2px;
+
 }
 
 .progress-bar:after {
