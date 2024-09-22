@@ -64,6 +64,7 @@ section {
 
 body {
   
+  margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 1rem;
   font-weight: 400;
@@ -71,21 +72,9 @@ body {
   color: #212529;
   text-align: left;
   background-color: #fff;
-
-  margin: 10px; /* Adjust this value as needed for spacing */
-  padding: 0; /* Reset padding if needed */
-  box-sizing: border-box; /* Ensure margins don't affect overall body size */
-  
-  
-  
   
 }
 
-@media (max-width: 768px) {
-  body {
-    margin: 15px; /* Increase margin for smaller screens if necessary */
-  }
-}
 
 [tabindex="-1"]:focus {
   outline: 0 !important;
@@ -13095,6 +13084,12 @@ textarea.form-control {
 @media (max-width: 767.98px) {
   .ftco-section {
     padding: 6em 0;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .ftco-padding {
+    padding: 6em 10px;
   }
 }
 
