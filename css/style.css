@@ -64,7 +64,7 @@ section {
 
 body {
   
-  margin: 0;
+  
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 1rem;
   font-weight: 400;
@@ -72,9 +72,21 @@ body {
   color: #212529;
   text-align: left;
   background-color: #fff;
+
+  margin: 10px; /* Adjust this value as needed for spacing */
+  padding: 0; /* Reset padding if needed */
+  box-sizing: border-box; /* Ensure margins don't affect overall body size */
+
   
 }
 
+
+/* Optional: Further adjustments for smaller screens */
+@media (max-width: 768px) {
+  body {
+    margin: 15px; /* Increase margin for smaller screens if necessary */
+  }
+}
 
 [tabindex="-1"]:focus {
   outline: 0 !important;
@@ -12302,6 +12314,16 @@ h5,
   color: #ffbd39;
 }
 
+.textmarginsolver{
+  margin-top: 0px;
+}
+
+@media (max-width: 991.98px) {
+  .textmarginsolver{
+    margin-top: 250px;
+  }
+}
+
 @media (max-width: 991.98px) {
   .owl-carousel.home-slider .slider-item .slider-text h1 {
     color: #fff;
@@ -12357,6 +12379,16 @@ h5,
 @media (max-width: 991.98px) {
   .owl-carousel.home-slider .owl-nav {
     display: none;
+  }
+}
+
+.fixphonetop{
+  margin-top: -0px;
+}
+
+@media (max-width: 991.98px) {
+  .fixphonetop{
+    margin-top: -50px;
   }
 }
 
@@ -13971,3 +14003,5 @@ textarea.form-control {
     stroke-dashoffset: -136px;
   }
 }
+
+
