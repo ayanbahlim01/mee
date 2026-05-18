@@ -179,41 +179,40 @@
 								<span id="typing-animation"></span>
 
 								<script>
+	// Initialize the typing animation
+	const typingAnimationElement = document.getElementById('typing-animation');
 
-									// Initialize the typing animation
-									const typingAnimationElement = document.getElementById('typing-animation');
+	// Create an array of typing text
+	const typingTexts = [
+		'Video Editor  ',
+		'Content Creator  ',
+		'Software Developer   ',
+	];
 
-									// Create an array of typing text
-									const typingTexts = [
-										'Video Editor  ',
-										'Software Developer  ',
-										'Content Creator   ',
-									];
+	const typingSpeed = 90;   // ⬅️ Faster typing speed
+	const pauseBetween = 800; // small pause before next text
 
-									// Create a function to display the typing animation for a given text
-									function playTypingAnimation(text) {
-										// Loop through each character and add it to the element
-										for (let i = 0; i < text.length; i++) {
-											setTimeout(() => {
-												typingAnimationElement.textContent += text[i];
-											}, i * 200); // Increase the delay to slow down the typing animation
-										}
+	function playTypingAnimation(text) {
+		for (let i = 0; i < text.length; i++) {
+			setTimeout(() => {
+				typingAnimationElement.textContent += text[i];
+			}, i * typingSpeed);
+		}
 
-										// Once the animation is complete, reset the text and start over
-										setTimeout(() => {
-											typingAnimationElement.textContent = '';
-											playTypingAnimation(typingTexts[(typingTexts.indexOf(text) + 1) % typingTexts.length]);
-										}, text.length * 200);
-									}
+		setTimeout(() => {
+			typingAnimationElement.textContent = '';
+			playTypingAnimation(
+				typingTexts[(typingTexts.indexOf(text) + 1) % typingTexts.length]
+			);
+		}, text.length * typingSpeed + pauseBetween);
+	}
 
-									// Start the typing animation loop
-									playTypingAnimation(typingTexts[0]);
-
-								</script>
+	playTypingAnimation(typingTexts[0]);
+</script>
 
 								<br>
 								<br>
-								<h2>Video Editor | Software Developer</h2>
+								<h2>Video Editor | Content Creator |Software Developer</h2>
 								<!-- <h2 class="d-flex" style="margin-bottom: 0">With over 5 years of experience</h2> -->
 								<!-- <br> -->
 								<p><a target="_blank" rel="noopener noreferrer"
